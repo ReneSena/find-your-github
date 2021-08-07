@@ -25,6 +25,9 @@ const useStyles = makeStyles(() => ({
 	input: {
 		borderRadius: "4px 0 0 4px",
 	},
+	card: {
+		marginTop: "24px",
+	}
 }));
 
 type User = {
@@ -61,9 +64,10 @@ const App: React.FC = () => {
 			display="flex"
 			alignItems="center"
 			flexDirection="column"
-			justifyContent="center"
+			justifyContent="flex-start"
 			width="100%"
 			height="100vh"
+			marginTop="100px"
 		>
 			<CssBaseline />
 
@@ -94,7 +98,7 @@ const App: React.FC = () => {
 			</form>
 
 			{user && (
-				<Card>
+				<Card className={classes.card}>
 					<CardActionArea>
 						<CardMedia
 							component="img"
