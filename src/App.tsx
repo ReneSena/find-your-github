@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -17,16 +18,49 @@ import Link from "@material-ui/core/Link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import SearchIcon from '@material-ui/icons/Search';
+import { Logo } from './components/Logo';
+
+const StyledInput = styled(TextField)`
+	background: #fff;
+	width: 400px;
+
+	& .MuiOutlinedInput-root {
+		border-radius: 4px 0 0 4px;
+	}
+`;
+
+const StyledBox = styled(Box)`
+	background-color: #f3f3f3;
+	width: 100%;
+	height: 200px;
+	display: block;
+	position: relative;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #b4b4b4;
+	z-index: 0;
+`;
+
+const StyledButton = styled(Button)`
+	border-radius: 0 4px 4px 0;
+	height: 40px;
+	opacity: 1;
+
+	&[disabled] {
+		background-color: #e4e4e4;
+	}
+`;
 
 const useStyles = makeStyles(() => ({
-	button: {
-		borderRadius: "0 4px 4px 0",
-	},
-	input: {
-		borderRadius: "4px 0 0 4px",
-	},
 	card: {
 		marginTop: "24px",
+	},
+	header: {
+		backgroundColor: '#F3F3F3',
+		position: 'fixed',
+		top: 0,
+		left: 0,
 	}
 }));
 
@@ -48,7 +82,7 @@ const App: React.FC = () => {
 
 		fetch(`https://api.github.com/users/${githubUser}`)
 			.then((response) => response.json())
-			.then((data) =>
+			.then((data) => {
 				setUser({
 					name: data.name,
 					avatar: data.avatar_url,
@@ -56,8 +90,9 @@ const App: React.FC = () => {
 					following: data.following,
 					profile: data.html_url,
 				})
+			}
 			).catch(error => console.log(error))
-	}
+		}
 
 	return (
 		<Box
@@ -66,35 +101,41 @@ const App: React.FC = () => {
 			flexDirection="column"
 			justifyContent="flex-start"
 			width="100%"
-			height="100vh"
-			marginTop="100px"
 		>
 			<CssBaseline />
+
+			<StyledBox />
 
 			<form
 				onSubmit={handleSubmit}
 				noValidate
 				autoComplete="off"
-				style={{ display: "flex" }}
+				style={{ display: "flex", alignItems:"center", flexDirection: "column", marginTop: '-105px', position: "relative" }}
 			>
-				<TextField
-					className={classes.input}
-					id="outlined-basic"
-					label="Your User"
-					variant="outlined"
-					size="small"
-					value={githubUser}
-					onChange={(event) => setGithubUser(event.target.value)}
-				/>
-				<Button
-					className={classes.button}
-					type="submit"
-					variant="contained"
-					color="primary"
-					disabled={githubUser === ''}
-				>
-					Buscar
-				</Button>
+				<Box marginBottom="16px">
+					<Logo />
+				</Box>
+
+				<Box>
+					<StyledInput
+						id="outlined-basic"
+						label="Search a User"
+						variant="outlined"
+						size="small"
+						value={githubUser}
+						onChange={(event) => setGithubUser(event.target.value)}
+					/>
+
+					<StyledButton
+
+						type="submit"
+						variant="contained"
+						color="primary"
+						disabled={githubUser === ''}
+					>
+						<SearchIcon />
+					</StyledButton>
+				</Box>
 			</form>
 
 			{user && (
@@ -130,7 +171,7 @@ const App: React.FC = () => {
 							</List>
 						</CardContent>
 						<CardActions>
-							<Link href={user?.profile}>Mais do perfil</Link>
+							<Link href={user?.profile} target="_blank">Mais do perfil</Link>
 						</CardActions>
 					</CardActionArea>
 				</Card>
