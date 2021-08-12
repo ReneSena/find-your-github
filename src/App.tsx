@@ -75,7 +75,7 @@ const StyledLink = styled(Link)`
 	padding: 0 20px;
 	line-height: 40px;
 	transition: all 200ms linear;
-
+	width: 10pc;
 
 	&:hover {
 		text-decoration: none;
