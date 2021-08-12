@@ -4,11 +4,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {
+	Avatar,
 	Box,
 	CardActionArea,
 	CardContent,
-	CardMedia,
-	makeStyles,
 	Typography,
 } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
@@ -52,17 +51,39 @@ const StyledButton = styled(Button)`
 	}
 `;
 
-const useStyles = makeStyles(() => ({
-	card: {
-		marginTop: "24px",
-	},
-	header: {
-		backgroundColor: '#F3F3F3',
-		position: 'fixed',
-		top: 0,
-		left: 0,
+const StyledCard = styled(Card)`
+	margin-top: 60px;
+	width: 500px;
+	height: 450px;
+
+	& .MuiCardContent-root {
+		padding: 0;
 	}
-}));
+`;
+
+const StyledAvatar = styled(Avatar)`
+	width: 150px;
+	height: 150px;
+	margin-bottom: 24px;
+`;
+
+const StyledLink = styled(Link)`
+	color: #7B42D9;
+	border: 1px solid #7B42D9;
+	height: 40px;
+	border-radius: 50px;
+	padding: 0 20px;
+	line-height: 40px;
+	transition: all 200ms linear;
+
+
+	&:hover {
+		text-decoration: none;
+		background: #7B42D9;
+		color: white;
+		box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.1);
+	}
+`;
 
 type User = {
 	name: string;
@@ -70,10 +91,10 @@ type User = {
 	followers: number;
 	following: number;
 	profile: string;
+	dateCreated: string;
 };
 
 const App: React.FC = () => {
-	const classes = useStyles();
 	const [user, setUser] = React.useState<User>();
 	const [githubUser, setGithubUser] = React.useState<string>("");
 
@@ -83,12 +104,19 @@ const App: React.FC = () => {
 		fetch(`https://api.github.com/users/${githubUser}`)
 			.then((response) => response.json())
 			.then((data) => {
+				const dateFormat = new Date(data.created_at).toLocaleString("pt-br", {
+					day: "numeric",
+					month: "2-digit",
+					year: "2-digit"
+				});
+
 				setUser({
 					name: data.name,
 					avatar: data.avatar_url,
 					followers: data.followers,
 					following: data.following,
 					profile: data.html_url,
+					dateCreated: dateFormat
 				})
 			}
 			).catch(error => console.log(error))
@@ -139,42 +167,47 @@ const App: React.FC = () => {
 			</form>
 
 			{user && (
-				<Card className={classes.card}>
+				<StyledCard>
 					<CardActionArea>
-						<CardMedia
-							component="img"
-							alt={`Foto de ${user?.name}`}
-							height="250"
-							image={user?.avatar}
-							title={`Foto de ${user?.name}`}
-						/>
+						<CardContent style={{ display: 'flex', alignItems: 'center'}}>
+							<div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'space-evenly', height: '450px', textAlign: 'center'}}>
+								<div>
+									<StyledAvatar alt={`Foto de perfil de ${user.name}`} src={user?.avatar} />
 
-						<CardContent>
-							<Typography
-								gutterBottom
-								variant="h5"
-								component="h2"
-							>
-								{user?.name}
-							</Typography>
-							<List>
-								<ListItem>
+									<Typography
+										gutterBottom
+										variant="h5"
+										component="h2"
+									>
+										{user?.name}
+									</Typography>
+								</div>
+
+								<CardActions>
+									<StyledLink href={user?.profile} target="_blank">More details</StyledLink>
+								</CardActions>
+							</div>
+							<List style={{ padding: '0'}}>
+								<ListItem style={{ textAlign: 'center', width: '200px', height: '150px', background: '#D7D8FF', borderRadius: `5px`, borderBottom: `1px solid white`}}>
 									<ListItemText
-										primary={`Following ${user?.following}`}
+										primary={`${user?.following}`} secondary="Following"
 									/>
 								</ListItem>
-								<ListItem>
+								<ListItem style={{ textAlign: 'center', width: '200px', height: '150px', background: '#D7D8FF', borderRadius: `0`, borderBottom: `1px solid white`}}>
 									<ListItemText
-										primary={`Followers ${user?.followers}`}
+										primary={`${user?.followers}`} secondary="Followers"
+									/>
+								</ListItem>
+								<ListItem style={{ textAlign: 'center', width: '200px', height: '150px', background: '#D7D8FF', borderRadius: `5px`}}>
+									<ListItemText
+										primary={`${user?.dateCreated}`} secondary="Created"
 									/>
 								</ListItem>
 							</List>
 						</CardContent>
-						<CardActions>
-							<Link href={user?.profile} target="_blank">Mais do perfil</Link>
-						</CardActions>
+
 					</CardActionArea>
-				</Card>
+				</StyledCard>
 			)}
 		</Box>
 	);
