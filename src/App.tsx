@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+
 import {
-	Avatar,
 	Box,
 	CardActionArea,
 	CardContent,
 	Typography,
 } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import Link from "@material-ui/core/Link";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -20,15 +16,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SearchIcon from '@material-ui/icons/Search';
 import { Logo } from './components/Logo';
 import { formatDate } from './helpers/formatDate/formatDate';
+import { StyledAvatar } from './components/commons/Avatar/styles';
+import { StyledButton } from './components/commons/Button/styles';
+import { StyledCard } from './components/commons/Card/styles';
+import { StyledInput } from './components/commons/Form/TextField/styles';
 
-const StyledInput = styled(TextField)`
-	background: #fff;
-	width: 400px;
-
-	& .MuiOutlinedInput-root {
-		border-radius: 4px 0 0 4px;
-	}
-`;
 
 const StyledBox = styled(Box)`
 	background-color: #f3f3f3;
@@ -40,49 +32,6 @@ const StyledBox = styled(Box)`
 	left: 0;
 	border-bottom: 1px solid #b4b4b4;
 	z-index: 0;
-`;
-
-const StyledButton = styled(Button)`
-	border-radius: 0 4px 4px 0;
-	height: 40px;
-	opacity: 1;
-
-	&[disabled] {
-		background-color: #e4e4e4;
-	}
-`;
-
-const StyledCard = styled(Card)`
-	margin-top: 60px;
-	width: 500px;
-	height: 300px;
-
-	& .MuiCardContent-root {
-		padding: 0;
-	}
-`;
-
-const StyledAvatar = styled(Avatar)`
-	width: 120px;
-	height: 120px;
-	margin-bottom: 24px;
-`;
-
-const StyledLink = styled(Link)`
-	color: #7B42D9;
-	border: 1px solid #7B42D9;
-	height: 32px;
-	border-radius: 50px;
-	padding: 0 20px;
-	line-height: 32px;
-	transition: all 200ms linear;
-
-	&:hover {
-		text-decoration: none;
-		background: #7B42D9;
-		color: white;
-		box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.1);
-	}
 `;
 
 type User = {
@@ -142,7 +91,6 @@ const App: React.FC = () => {
 
 				<Box>
 					<StyledInput
-
 						id="outlined-basic"
 						label="Search a User"
 						variant="outlined"
@@ -152,7 +100,6 @@ const App: React.FC = () => {
 					/>
 
 					<StyledButton
-
 						type="submit"
 						variant="contained"
 						color="primary"
@@ -170,7 +117,6 @@ const App: React.FC = () => {
 							<div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'space-evenly', height: '300px', textAlign: 'center'}}>
 								<div>
 									<StyledAvatar alt={`Foto de perfil de ${user.name}`} src={user?.avatar} />
-
 									<Typography
 										gutterBottom
 										variant="h5"
@@ -179,9 +125,8 @@ const App: React.FC = () => {
 										{user?.name}
 									</Typography>
 								</div>
-
 								<CardActions>
-									<StyledLink href={user?.profile} target="_blank">More details</StyledLink>
+									<StyledButton size="small" variant="outlined" href={user?.profile}>More details</StyledButton>
 								</CardActions>
 							</div>
 							<List style={{ padding: '0'}}>
@@ -202,7 +147,6 @@ const App: React.FC = () => {
 								</ListItem>
 							</List>
 						</CardContent>
-
 					</CardActionArea>
 				</StyledCard>
 			)}
