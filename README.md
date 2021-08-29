@@ -11,13 +11,13 @@ This is app has as objective show profile details of a person with base in your 
 
 ## Running the project
 
-Do you have to do a clone the project.
+Do you have to do a clone of the project:
 
 ```bash
 git clone https://github.com/ReneSena/find-your-github.git
 ```
 
-After finishing the download you  have to run:
+After finishing the download run code below:
 
 ```bash
 cd find-your-github
