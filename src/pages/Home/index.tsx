@@ -14,6 +14,8 @@ import { StyledButton } from '../../components/commons/Button/styles';
 import { StyledCard, StyledList } from '../../components/commons/Card/styles';
 import { StyledInput } from '../../components/commons/Form/TextField/styles';
 import { StyledBox } from "./styles";
+import { getUserGithub } from "../../services/userService";
+import { removeSpaceOfString } from "../../helpers/removeSpace /removeSpace";
 
 type User = {
 	name: string;
@@ -28,23 +30,30 @@ export function HomePage() {
 	const [user, setUser] = React.useState<User>();
 	const [githubUser, setGithubUser] = React.useState<string>("");
 
-	function handleSubmit(event: React.SyntheticEvent) {
+	async function handleSubmit(event: React.SyntheticEvent) {
 		event.preventDefault();
 
-		fetch(`https://api.github.com/users/${githubUser}`)
-			.then((response) => response.json())
-			.then((data) => {
+		const formatNameUser = removeSpaceOfString(githubUser);
 
-				setUser({
-					name: data.name,
-					avatar: data.avatar_url,
-					followers: data.followers,
-					following: data.following,
-					profile: data.html_url,
-					dateCreated: formatDate(data.created_at)
-				})
-			}
-			).catch(error => console.log(error))
+		const response = await getUserGithub(formatNameUser);
+
+		try {
+			const {
+				name, avatar_url, followers,
+				following, html_url, created_at } = response.data;
+
+			setUser({
+				name: name,
+				avatar: avatar_url,
+				followers: followers,
+				following: following,
+				profile: html_url,
+				dateCreated: formatDate(created_at)
+			});
+		}
+		catch (error) {
+			console.error(error)
+		}
 	}
 
 	function ListInfoItemUser(props: { title: number | string, description: string }): JSX.Element {
