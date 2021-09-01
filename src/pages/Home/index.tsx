@@ -27,7 +27,7 @@ type User = {
 };
 
 export function HomePage() {
-	const [user, setUser] = React.useState<User>();
+	const [user, setUser] = React.useState<User | undefined>();
 	const [githubUser, setGithubUser] = React.useState<string>("");
 
 	async function handleSubmit(event: React.SyntheticEvent) {
