@@ -7,12 +7,12 @@ export const StyledButton = styled(Button)`
 	opacity: 1;
 
 	&[disabled] {
-		background-color: #e4e4e4;
+		background-color: ${props => props.theme.palette.grey[300]};
 	}
 
 	${props => props.variant === 'outlined' && css`
-		color: #7B42D9;
-		border: 1px solid #7B42D9;
+		color: ${props => props.theme.palette.secondary.main};
+		border: 1px solid ${props => props.theme.palette.secondary.main};
 		height: 32px;
 		border-radius: 50px;
 		padding: 0 20px;
@@ -23,8 +23,8 @@ export const StyledButton = styled(Button)`
 
 		&:hover {
 			text-decoration: none;
-			background: #7B42D9;
-			color: white;
+			background: ${props => props.theme.palette.secondary.main};
+			color: ${props => props.theme.palette.common.white};
 			box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.1);
 		}
 	`}

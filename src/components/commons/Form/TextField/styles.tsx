@@ -2,7 +2,7 @@ import { TextField } from "@material-ui/core";
 import styled from "styled-components";
 
 export const StyledInput = styled(TextField)`
-	background: #fff;
+	background: ${props => props.theme.palette.common.white};
 	width: 400px;
 
 	& .MuiOutlinedInput-root {

@@ -17,7 +17,7 @@ export const StyledList = styled(List)`
 	& li {
 		width: 200px;
 		height: 100px;
-		background-color: #d7d8ff;
+		background-color: ${props => props.theme.palette.secondary.light};
 		border-radius: 5px;
 		text-align: center;
 		display: flex;
@@ -26,20 +26,20 @@ export const StyledList = styled(List)`
 		flex-direction: column;
 
 		&:not(:last-child) {
-			border-bottom: 1px solid #fff;
+			border-bottom: 1px solid ${props => props.theme.palette.common.white};
 		}
 
 		h2 {
 			font-size: 24px;
 			font-weight: 700;
-			color: #222;
+			color: ${props => props.theme.palette.grey[900]};
 			margin: 0;
 		}
 
 		h3 {
 			font-size: 16px;
 			font-weight: 400;
-			color: #555;
+			color: ${props => props.theme.palette.grey[700]};
 			margin: 0;
 		}
 	}
