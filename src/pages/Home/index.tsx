@@ -35,9 +35,10 @@ export function HomePage() {
 
 		const formatNameUser = removeSpaceOfString(githubUser);
 
-		const response = await getUserGithub(formatNameUser);
 
 		try {
+			const response = await getUserGithub(formatNameUser);
+
 			const {
 				name, avatar_url, followers,
 				following, html_url, created_at } = response.data;
