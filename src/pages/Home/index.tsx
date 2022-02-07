@@ -26,7 +26,7 @@ type User = {
 	dateCreated: string;
 };
 
-export function HomePage() {
+export function ProfilePage() {
 	const [user, setUser] = React.useState<User | undefined>();
 	const [githubUser, setGithubUser] = React.useState<string>("");
 
