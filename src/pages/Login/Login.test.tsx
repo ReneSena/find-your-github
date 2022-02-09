@@ -16,13 +16,13 @@ describe('<Login />', () => {
 	test('should render a Login Component', () => {
 		render(<LoginPage />);
 
-		expect(screen.getByPlaceholderText('Type username')).toBeInTheDocument();
+		expect(screen.getByPlaceholderText('Type user name')).toBeInTheDocument();
 	});
 
 	test('should write on field user', () => {
 		render(<LoginPage />);
 
-		const inputUser = screen.getByPlaceholderText('Type username');
+		const inputUser = screen.getByPlaceholderText('Type user name');
 		userEvent.type(inputUser, 'ReneSena');
 
 		expect(inputUser).toHaveValue('ReneSena');
@@ -38,7 +38,7 @@ describe('<Login />', () => {
 			</Router>
 		);
 
-		const inputUser = screen.getByPlaceholderText('Type username');
+		const inputUser = screen.getByPlaceholderText('Type user name');
 		userEvent.type(inputUser, 'ReneSena');
 
 		const buttonSubmit = screen.getByRole('button',

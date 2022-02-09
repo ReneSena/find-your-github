@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
-import { Button } from './styles';
+import { Button, Input,  Container } from './styles';
 
 export function LoginPage() {
 	const history = useHistory();
@@ -17,16 +17,18 @@ export function LoginPage() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label>User</label>
-				<input type="text"
-					placeholder="Type username"
-					value={user}
-					onChange={handleChangeUser}
-				/>
-			</div>
-			<Button type="submit" disabled={user.length < 3}>Sign in</Button>
-		</form>
+		<Container>
+			<form onSubmit={handleSubmit}>
+				<div>
+					<Input type="text"
+						placeholder="Type user name"
+						value={user}
+						onChange={handleChangeUser}
+						autoFocus
+					/>
+				</div>
+				<Button type="submit" disabled={user.length < 3}>Sign in</Button>
+			</form>
+		</Container>
 	);
 }
