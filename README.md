@@ -6,6 +6,8 @@ This is app has as objective show profile details of a person with base in your 
 
 - ReactJs
 - Typescript
+- Jest
+- Testing Library
 - Material UI
 - Editor Config
 
