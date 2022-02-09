@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
+import { Button } from './styles';
 
 export function LoginPage() {
 	const history = useHistory();
@@ -25,7 +26,7 @@ export function LoginPage() {
 					onChange={handleChangeUser}
 				/>
 			</div>
-			<button type="submit" disabled={user.length < 3}>Sign in</button>
+			<Button type="submit" disabled={user.length < 3}>Sign in</Button>
 		</form>
 	);
 }
