@@ -1,6 +1,6 @@
 import { api } from '../services/api';
 
-interface User {
+interface IUser {
 	name: string;
 	avatar: string;
 	followers: number;
@@ -9,8 +9,9 @@ interface User {
 	dateCreated: string;
 };
 
+
 export function getUserGithub(githubUser: string) {
-	return api.get<User>(`users/${githubUser}`)
+	return api.get<IUser>(`users/${githubUser}`)
 		.then(user => user)
 		.catch(error => error)
 }

@@ -4,10 +4,15 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content:center;
+	flex-direction: column;
 	min-height: 100vh;
 
 	background: rgb(149,186,237);
 	background: linear-gradient(90deg, rgba(149,186,237,1) 0%, rgba(199,125,228,1) 46%, rgba(154,186,255,1) 100%);
+`;
+
+export const Form = styled.form`
+	margin-top: 24px;
 `;
 
 export const Input = styled.input`
@@ -40,6 +45,7 @@ export const Button = styled.button`
 
 	&[disabled] {
 		opacity: 0.8;
+		background: #4f4e4e;
 		cursor: not-allowed;
 	}
 `;
