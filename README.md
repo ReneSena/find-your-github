@@ -1,14 +1,14 @@
 ## Objective
 
-This is app has as objective show profile details of a person with base in your username the GitHub.
+This is app has as objective to show profile details of a person with base in your GitHub.
 
 ## Tools
 
 - ReactJs
 - Typescript
+- Styled Components
 - Jest
 - Testing Library
-- Material UI
 - Editor Config
 
 ## Running the project
