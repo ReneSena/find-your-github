@@ -10,21 +10,26 @@ import { formatDate } from '../../helpers/formatDate/formatDate';
 import { StyledAvatar } from '../../components/commons/Avatar/styles';
 import { StyledButton } from '../../components/commons/Button/styles';
 import { StyledCard, StyledList } from '../../components/commons/Card/styles';
-import { getUserGithub } from "../../services/userService";
+import { getUserGithub, IUser } from "../../services/userService";
 import { removeSpaceOfString } from "../../helpers/removeSpace /removeSpace";
 import { useLocation } from "react-router-dom";
 
-type User = {
-	name: string;
-	avatar: string;
-	followers: number;
-	following: number;
-	profile: string;
-	dateCreated: string;
-};
+function getUserName(params: string) {
+	const urlSearch = new URLSearchParams(params);
+	const userName = urlSearch.get('name');
+
+	if (userName !== null) {
+		return userName;
+	}
+
+	return '';
+}
+
 
 export function ProfilePage() {
-	const [user, setUser] = React.useState<User>({
+	const location = useLocation();
+
+	const[user, setUser] = React.useState<IUser>({
 		name: '',
 		avatar: '',
 		followers: 0,
@@ -33,15 +38,14 @@ export function ProfilePage() {
 		dateCreated: ''
 	});
 
-
 	React.useEffect(() => {
 		async function getUserDetails() {
 			try {
-				const response = await getUserGithub('ReneSena');
+				const response = await getUserGithub(getUserName(location.search));
 
 				const {
 					name, avatar_url, followers,
-					following, html_url, created_at } = response.data;
+					following, html_url, created_at } = response?.data;
 
 				setUser({
 					name: name,
@@ -58,9 +62,6 @@ export function ProfilePage() {
 		}
 
 		getUserDetails();
-
-		console.log(user)
-
 	}, []);
 
 	function ListInfoItemUser(props: { title: number | string, description: string }): JSX.Element {
