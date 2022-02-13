@@ -11,7 +11,7 @@ import { StyledAvatar } from '../../components/commons/Avatar/styles';
 import { StyledButton } from '../../components/commons/Button/styles';
 import { StyledCard, StyledList } from '../../components/commons/Card/styles';
 import { getUserGithub, IUser } from "../../services/userService";
-import { removeSpaceOfString } from "../../helpers/removeSpace /removeSpace";
+// import { removeSpaceOfString } from "../../helpers/removeSpace /removeSpace";
 import { useLocation } from "react-router-dom";
 
 function getUserName(params: string) {
@@ -62,7 +62,7 @@ export function ProfilePage() {
 		}
 
 		getUserDetails();
-	}, []);
+	}, [location.search]);
 
 	function ListInfoItemUser(props: { title: number | string, description: string }): JSX.Element {
 		return (

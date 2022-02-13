@@ -6,16 +6,16 @@ export const Container = styled.div`
 	justify-content:center;
 	flex-direction: column;
 	min-height: 100vh;
-
-	background: rgb(149,186,237);
-	background: linear-gradient(90deg, rgba(149,186,237,1) 0%, rgba(199,125,228,1) 46%, rgba(154,186,255,1) 100%);
+	background: linear-gradient(230deg, rgba(149,186,237,1) 0%, rgba(199,125,228,1) 46%, rgba(154,186,255,1) 100%);
 `;
 
 export const Form = styled.form`
+	width: 300px;
 	margin-top: 24px;
 `;
 
 export const Input = styled.input`
+	width: 100%;
 	font-size: 16px;
 	border-radius: 4px;
 	padding: 0 16px;
@@ -50,3 +50,17 @@ export const Button = styled.button`
 	}
 `;
 
+export const Title = styled.h3`
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 12px;
+`;
+
+export const SubTitle = styled.h6`
+	width: 250px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 8px;
+`;

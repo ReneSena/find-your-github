@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import { Logo } from '../../components/Logo';
-import { Button, Input,  Container, Form } from './styles';
+import { Button, Input,  Container, Form, SubTitle, Title } from './styles';
 
 export function LoginPage() {
 	const history = useHistory();
@@ -20,6 +20,8 @@ export function LoginPage() {
 	return (
 		<Container>
 			<Logo />
+			<Title>Bem-vindo</Title>
+			<SubTitle>Conheça o perfil de milhares de desenvoldedores</SubTitle>
 
 			<Form onSubmit={handleSubmit}>
 				<Input type="text"
