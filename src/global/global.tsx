@@ -6,4 +6,16 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		box-sizing: border-box;
 	}
+
+	body {
+		font-family: 'Inter', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	input, button, select {
+		font-family: 'Inter', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+	}
 `;
