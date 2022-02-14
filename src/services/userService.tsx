@@ -9,8 +9,6 @@ export interface IUser {
 	dateCreated: string;
 };
 
-
-
 export function getUserGithub(githubUser : string) {
 	return api.get<IUser>(`users/${githubUser}`)
 		.then(user => user)

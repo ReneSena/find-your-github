@@ -10,8 +10,15 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-	width: 300px;
 	margin-top: 24px;
+	margin-left: 24px;
+	margin-right: 24px;
+
+	@media (min-width: 780px) {
+		width: 300px;
+		margin-left: 0;
+		margin-right: 0;
+	}
 `;
 
 export const Input = styled.input`
