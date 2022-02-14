@@ -7,13 +7,7 @@ export const GlobalStyle = createGlobalStyle`
 		box-sizing: border-box;
 	}
 
-	body {
-		font-family: 'Inter', sans-serif;
-		font-size: 14px;
-		font-weight: 400;
-	}
-
-	input, button, select {
+	body, input, button, select {
 		font-family: 'Inter', sans-serif;
 		font-size: 14px;
 		font-weight: 400;
