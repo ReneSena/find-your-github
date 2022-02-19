@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.section`
 	width: 100%;
@@ -23,7 +23,6 @@ export const Message = styled.div`
 			font-weight: 600;
 		}
 	}
-
 
 	& button {
 		padding: 0 20px;

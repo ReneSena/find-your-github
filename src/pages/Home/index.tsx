@@ -17,7 +17,6 @@ function getUserName(params: string) {
 	return '';
 }
 
-
 export function ProfilePage() {
 	const location = useLocation();
 
