@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import userEvent from '@testing-library/user-event';
-import { LoginPage } from './Login';
+import LoginPage  from './Login';
 
 jest.mock('react-router-dom', () => ({
 	...jest.requireActual('react-router-dom'),
@@ -46,7 +46,6 @@ describe('<Login />', () => {
 		);
 
 		userEvent.click(buttonSubmit);
-
 
 		expect(history.location.pathname).toBe('/profile')
 	});

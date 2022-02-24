@@ -17,7 +17,7 @@ function getUserName(params: string) {
 	return '';
 }
 
-export function ProfilePage() {
+const ProfilePage = () => {
 	const location = useLocation();
 
 	const[user, setUser] = React.useState<IUser>({
@@ -79,3 +79,5 @@ export function ProfilePage() {
 		</Container>
 	);
 }
+
+export default ProfilePage;

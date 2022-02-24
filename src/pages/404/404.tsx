@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import * as Styled from './styles';
 
-export const Page404 = () => {
+const Page404 = () => {
 	const history = useHistory();
 	const URL_IMAGE = 'https://octodex.github.com/images/NUX_Octodex.gif';
 
@@ -18,3 +18,5 @@ export const Page404 = () => {
 		</Styled.Container>
 	);
 };
+
+export default Page404;

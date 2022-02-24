@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Logo } from '../../components/Logo';
 import { Button, Input,  Container, Form, SubTitle, Title } from './styles';
 
-export function LoginPage() {
+const LoginPage = () => {
 	const history = useHistory();
 	const [user, setUser] = React.useState<string>('');
 
@@ -36,3 +36,5 @@ export function LoginPage() {
 		</Container>
 	);
 }
+
+export default LoginPage;
