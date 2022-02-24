@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import { Logo } from '../../components/Logo';
-import { Button, Input,  Container, Form, SubTitle, Title } from './styles';
+import * as Styled from './styles';
 
 const LoginPage = () => {
 	const history = useHistory();
@@ -18,22 +18,21 @@ const LoginPage = () => {
 	}
 
 	return (
-		<Container>
+		<Styled.Container>
 			<Logo />
-			<Title>Bem-vindo</Title>
-			<SubTitle>Conheça o perfil de milhares de desenvoldedores</SubTitle>
+			<Styled.Title>Bem-vindo</Styled.Title>
+			<Styled.SubTitle>Conheça o perfil de milhares de desenvoldedores</Styled.SubTitle>
 
-			<Form onSubmit={handleSubmit}>
-				<Input type="text"
+			<Styled.Form onSubmit={handleSubmit}>
+				<Styled.Input type="text"
 					placeholder="Type user name"
 					value={user}
 					onChange={handleChangeUser}
 					autoFocus
 				/>
-
-				<Button type="submit" disabled={user.length < 3}>Sign in</Button>
-			</Form>
-		</Container>
+				<Styled.Button type="submit" disabled={user.length < 3}>Sign in</Styled.Button>
+			</Styled.Form>
+		</Styled.Container>
 	);
 }
 
