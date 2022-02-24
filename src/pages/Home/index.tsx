@@ -1,8 +1,7 @@
 import React from "react";
 
 import { formatDate } from '../../helpers/formatDate/formatDate';
-import { getUserGithub, IUser } from "../../services/userService";
-// import { removeSpaceOfString } from "../../helpers/removeSpace /removeSpace";
+import { IUser, UserService } from "../../services/userService";
 import { useLocation } from "react-router-dom";
 import { Avatar, Button, Container, ContentInfo, Header } from "./styles";
 
@@ -22,29 +21,33 @@ const ProfilePage = () => {
 
 	const[user, setUser] = React.useState<IUser>({
 		name: '',
-		avatar: '',
+		avatar_url: '',
 		followers: 0,
 		following: 0,
 		profile: '',
-		dateCreated: ''
+		html_url: '',
+		created_at: ''
 	});
 
 	React.useEffect(() => {
 		async function getUserDetails() {
+			const userService = new UserService();
+
 			try {
-				const response = await getUserGithub(getUserName(location.search));
+				const response = await userService.searchUser(getUserName(location.search));
 
 				const {
 					name, avatar_url, followers,
-					following, html_url, created_at } = response?.data;
+					following, html_url, created_at } = response.data;
 
 				setUser({
 					name: name,
-					avatar: avatar_url,
+					avatar_url,
 					followers: followers,
 					following: following,
 					profile: html_url,
-					dateCreated: formatDate(created_at)
+					html_url,
+					created_at: formatDate(created_at)
 				});
 			}
 			catch (error) {
@@ -58,7 +61,7 @@ const ProfilePage = () => {
 	return (
 		<Container>
 			<Header>
-				<Avatar alt={`Foto de perfil de ${user.name}`} src={user?.avatar} loading="lazy" />
+				<Avatar alt={`Foto de perfil de ${user.name}`} src={user?.avatar_url} loading="lazy" />
 				<h4>{user.name}</h4>
 			</Header>
 			<ContentInfo>
@@ -72,7 +75,7 @@ const ProfilePage = () => {
 				</li>
 				<li>
 					<p>Created at</p>
-					<strong>{user?.dateCreated}</strong>
+					<strong>{user?.created_at}</strong>
 				</li>
 			</ContentInfo>
 			<Button href={user?.profile}>More details</Button>

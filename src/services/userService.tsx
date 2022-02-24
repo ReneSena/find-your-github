@@ -1,16 +1,21 @@
+import { AxiosResponse } from 'axios';
 import { api } from '../services/api';
 
 export interface IUser {
 	name: string;
-	avatar: string;
+	avatar_url: string;
 	followers: number;
 	following: number;
 	profile: string;
-	dateCreated: string;
+	html_url: string;
+	created_at: string;
 };
 
-export function getUserGithub(githubUser : string) {
-	return api.get<IUser>(`users/${githubUser}`)
-		.then(user => user)
-		.catch(error => error)
+export class UserService {
+
+	async searchUser(githubUser: string): Promise<AxiosResponse<IUser>> {
+		const response = await api.get(`users/${githubUser}`)
+
+		return response;
+	}
 }
