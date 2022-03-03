@@ -1,8 +1,8 @@
-## Objective
+## 🎯 Objective
 
 This is app has as objective to show profile details of a person with base in your GitHub.
 
-## Tools
+## 🛠️ Tools
 
 - ReactJs
 - Typescript
@@ -11,7 +11,7 @@ This is app has as objective to show profile details of a person with base in yo
 - Testing Library
 - Editor Config
 
-## Running the project
+## 🚀 Running the project
 
 Do you have to do a clone of the project:
 
@@ -23,9 +23,13 @@ After finishing the download, run code below:
 
 ```bash
 cd find-your-github
+
+/* Install dependencies */
 npm install
+
+/* Initialize the project */
 npm start
 ```
+## 📚 References
 
-## Others
-- [Figma Prototype](https://www.figma.com/file/ZkrZVaUDmanTdWsSzF8VbE/Find-your-profile-on-github?node-id=0%3A1)
+- [Github API](https://docs.github.com/en)
