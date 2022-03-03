@@ -4,12 +4,12 @@ This is app has as objective to show profile details of a person with base in yo
 
 ## 🛠️ Tools
 
-- ReactJs
-- Typescript
-- Styled Components
-- Jest
-- Testing Library
-- Editor Config
+- [ReactJs](https://pt-br.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [Testing Library](https://testing-library.com/)
+- [Editor Config](https://editorconfig.org/)
 
 ## 🚀 Running the project
 
@@ -23,13 +23,17 @@ After finishing the download, run code below:
 
 ```bash
 cd find-your-github
+```
 
-/* Install dependencies */
+➡️ **Install Dependencies**
+```bash
 npm install
-
-/* Initialize the project */
+```
+➡️ **Start the project**
+```bash
 npm start
 ```
+
 ## 📚 References
 
 - [Github API](https://docs.github.com/en)
