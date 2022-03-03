@@ -13,25 +13,21 @@ This is app has as objective to show profile details of a person with base in yo
 
 ## 🚀 Running the project
 
-Do you have to do a clone of the project:
-
+➡️ **Do you have to do a clone of the project:**
 ```bash
 git clone https://github.com/ReneSena/find-your-github.git
 ```
-
-After finishing the download, run code below:
-
+➡️ **Access folder**
 ```bash
 cd find-your-github
 ```
-
-➡️ **Install Dependencies**
+➡️ **Install dependencies**
 ```bash
-npm install
+yarn install
 ```
 ➡️ **Start the project**
 ```bash
-npm start
+yarn start
 ```
 
 ## 📚 References
