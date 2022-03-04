@@ -3,39 +3,44 @@ import styled from 'styled-components';
 export const Container = styled.section`
 	background-color: #232323;
 	color: #f3f3f3;
-	min-height: 100vh;
+	// min-height: 100vh;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 `;
 
 export const Header = styled.header`
-	text-align: center;
-
-	h4 {
-		font-size: 20px;
-		font-weight: 700;
-	}
+	display: flex;
+	align-items: flex-start;
+	margin-top: 32px;
 `;
 
 export const Avatar = styled.img`
-	width: 120px;
-	height: 120px;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 	margin-bottom: 24px;
 `;
 
+export const WrapperInfo = styled.div`
+	margin-left: 64px;
+
+	h4 {
+		font-size: 32px;
+		font-weight: 700;
+		margin-bottom: 32px;
+	}
+`;
+
 export const ContentInfo = styled.ul`
 	list-style: none;
-	margin: 32px 40px;
-	width: calc(100% - 80px);
-	max-width: 300px;
+	max-width: 450px;
+	display: flex;
+	margin-bottom: 32px;
 
 	& li {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 8px;
+		margin-right: 24px;
 	}
 `;
 
