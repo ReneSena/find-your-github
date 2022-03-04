@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { Loader } from "../components/commons/Loader";
 
 const LoginPage = lazy(() => import("../pages/Login/Login"));
-const ProfilePage = lazy(() => import("../pages/Home"));
+const ProfilePage = lazy(() => import("../pages/Home/Home"));
 const Page404 = lazy(() => import("../pages/404/404"));
 
 export function Routes() {

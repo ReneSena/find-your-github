@@ -9,6 +9,8 @@ export interface IUser {
 	profile: string;
 	html_url: string;
 	created_at: string;
+	bio: string;
+	public_repos: number,
 };
 
 export class UserService {
